@@ -1338,7 +1338,7 @@
         color-mix(in srgb, var(--background-color), transparent 90%),
         color-mix(in srgb, var(--background-color), transparent 75%)
       ),
-      url("../../assets/Image/teamwork.jpg") center center;
+      url("../../assets/Images/TeamWork.jpg") center center;
     background-size: cover;
   }
   
@@ -1347,7 +1347,7 @@
         color-mix(in srgb, var(--background-color), transparent 90%),
         color-mix(in srgb, var(--background-color), transparent 75%)
       ),
-      url("../../assets/Image/teamwork2.jpg") center center;
+      url("../../assets/Images/TeamWork2.jpg") center center;
     background-size: cover;
     padding: 40px;
   }
