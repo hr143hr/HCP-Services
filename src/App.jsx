@@ -8,6 +8,7 @@ function App() {
   return (
     <>
     <h1>hardik R patel</h1>
+    <p>Himaatnagar</p>
     </>
   )
 }
