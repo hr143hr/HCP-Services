@@ -9,6 +9,9 @@ function App() {
     <>
     <h1>hardik R patel</h1>
     <p>Himaatnagar</p>
+    <p>Himaatnagar</p>
+    <p>Himaatnagar</p>
+    <p>Himaatnagar</p>
     </>
   )
 }
