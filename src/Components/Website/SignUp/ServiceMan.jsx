@@ -1,4 +1,3 @@
-import React from 'react'
 import {Link} from 'react-router'
 import logol1 from '../../../assets/Images/Logos/logol1.png'
 import logor1 from '../../../assets/Images/Logos/logor1.png'

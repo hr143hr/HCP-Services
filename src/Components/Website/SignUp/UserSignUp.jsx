@@ -147,7 +147,7 @@ const UserSignUp = () => {
             <div className="modal-body">
               <div className="d-flex align-items-center justify-content-start">
                 <div data-bs-dismiss="modal">
-                  <Link to="/vendor" >
+                  <Link to="/vendor" data-bs-dismiss="modal" >
                     <img src={vendarlogo1} alt="Vendor-Logo" className="modallogo" />
                   </Link>
                 </div>
@@ -157,7 +157,7 @@ const UserSignUp = () => {
               </div>
               <div className="d-flex align-items-center justify-content-end">
 
-                <div className="me-4" >
+                <div className="me-4" data-bs-dismiss="modal" >
                   <Link to="/serviceman" className="btn btn-outline-danger" >Service Man SignUp!</Link>
                 </div>
                 <div data-bs-dismiss="modal">
