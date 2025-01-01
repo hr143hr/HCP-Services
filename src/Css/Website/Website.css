@@ -1834,6 +1834,8 @@
   /*--------------------------------------------------------------
   # Contact Section
   --------------------------------------------------------------*/
+
+
   .contact .info {
     background-color: var(--surface-color);
     padding: 40px;
@@ -1916,8 +1918,17 @@
   
   .contact .php-email-form textarea {
     padding: 10px 12px;
-    height: 290px;
+    height: 336px;
   }
+
+
+  @media (max-width: 1024px) {
+    .contact .php-email-form textarea {
+      padding: 10px 12px;
+      height: 422px;
+    }
+  }
+
   
   .contact .php-email-form button[type="submit"] {
     background: var(--accent-color);
