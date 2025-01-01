@@ -1,0 +1,41 @@
+/* General Page Styling with Linear Gradient */
+.login-page {
+  font-family: "Open Sans", sans-serif;
+  background: #f6f9ff;
+  color: #444444;
+}
+.logol1 {
+  display: inline-block;
+  animation: rotate360 10s linear infinite; /* Rotates continuously */
+  width: 70px;
+}
+
+.logor1 {
+  width: 150px;
+}
+.login-logo {
+  line-height: 1;
+}
+
+/* Card */
+.login-page .card {
+  margin-bottom: 30px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+}
+.login-page .card-header,
+.card-footer {
+  border-color: #ebeef4;
+  background-color: #fff;
+  color: #798eb3;
+  padding: 15px;
+}
+.login-page .card-title {
+  padding: 20px 0 15px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #012970;
+  font-family: "Poppins", sans-serif;
+}
+

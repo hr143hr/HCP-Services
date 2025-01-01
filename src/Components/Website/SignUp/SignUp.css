@@ -1,0 +1,95 @@
+/* Vendor Css */
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.logol1 {
+  display: inline-block;
+  animation: rotate360 10s linear infinite; /* Rotates continuously */
+  width: 70px;
+}
+
+.logor1 {
+  width: 150px;
+}
+.vendor {
+  background-color: #f6f9ff;
+}
+
+.form {
+  padding: 10px;
+}
+.vendor-from {
+  width: 130%;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ) !important; /* Semi-transparent white background */
+  border-radius: 5px !important; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  padding: 30px; /* Padding inside the form */
+}
+
+/* Vendor Css  End*/
+
+/* Employeereg Css  */
+.Employeereg {
+  /* Use a background color as a fallback if the image fails to load */
+  background-color: #f6f9ff;
+
+  /* Set the background image */
+  /* background-image: url("../../../assets/Image/vandorback.jpg"); */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents image repetition */
+  background-size: cover; /* Ensures the image covers the container while maintaining aspect ratio */
+}
+.Employeereg-from {
+  width: 130%;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ) !important; /* Semi-transparent white background */
+  border-radius: 5px !important; /* Rounded corners */
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  padding: 30px; /* Padding inside the form */
+}
+
+.custom-file-upload input[type="file"] {
+  display: none; /* Hide the default file input */
+}
+
+.custom-file-upload .upload-btn img.upload-icon {
+  width: 500px;
+  height: 250px;
+  margin-right: 10px;
+}
+
+/* Employeereg Css  End*/
+.user {
+  background-color: #f6f9ff;
+}
+.user-form {
+  width: 130%;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ) !important; /* Semi-transparent white background */
+  border-radius: 5px !important; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  padding: 30px; /* Padding inside the form */
+}
+.modallogo{
+  width: 100px;
+}
