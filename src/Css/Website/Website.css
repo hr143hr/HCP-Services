@@ -1121,7 +1121,7 @@
     position: absolute;
     inset: -60px 0 0 -60px;
     content: "";
-    background: url("./../../assets/Image/aboutbackphoto.png") top left;
+    background: url("./../../assets/Images/AboutBackImage.png") top left;
     background-repeat: no-repeat;
     z-index: 1;
   }
