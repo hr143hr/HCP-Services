@@ -1,16 +1,20 @@
-import { useState } from 'react'
-
 import './App.css'
-
+import { BrowserRouter, Routes, Route } from "react-router";
+import WebLayout from './Layout/WebLayout';
+import Home from './Pages/Website/Home';
+import About from './Pages/Website/About';
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-    <h1>hardik R patel</h1>
-    <p>Himaatnagar</p>
-    <p>383001</p>
-    
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<WebLayout />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
