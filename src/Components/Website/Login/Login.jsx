@@ -15,7 +15,7 @@ const Login = () => {
                                 className="reg-logo d-flex align-items-center w-auto"
                             >
                                 <img src={logol1} alt="logol1" className="logol1" />
-                                <span className="d-none d-lg-block"><img src={logor1} alt="" className="logor1" /></span>
+                                <span className=""><img src={logor1} alt="" className="logor1" /></span>
                             </Link>
                         </div>
                         {/* End Logo */}

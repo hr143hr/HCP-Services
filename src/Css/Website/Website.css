@@ -2802,3 +2802,47 @@ h6 {
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
 }
+/* responcives */
+/* Base styles for navlogo */
+.navlogo {
+  display: flex;
+  justify-content: flex-start; /* Align the logo to the left by default */
+  padding: 10px;
+}
+
+.navlogo img {
+  max-width: 100%; /* Ensure the image scales within its container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain;
+}
+
+/* Responsive styles for different screen sizes */
+@media (max-width: 1200px) {
+  /* For screens smaller than 1200px */
+  .navlogo {
+    justify-content: center; /* Center logo for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  /* For tablet screens */
+  .navlogo {
+    padding: 8px;
+  }
+
+  .navlogo img {
+    max-width: 80%; /* Scale the image down */
+  }
+}
+
+@media (max-width: 576px) {
+  /* For mobile screens */
+  .navlogo {
+    padding: 5px;
+    justify-content: center; /* Center align the logo */
+  }
+
+  .navlogo img {
+    max-width: 70%; /* Reduce image size for smaller screens */
+  }
+}

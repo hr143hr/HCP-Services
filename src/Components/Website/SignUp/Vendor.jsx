@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router'
+import { Link } from 'react-router'
 import logol1 from '../../../assets/Images/Logos/logol1.png'
 import logor1 from '../../../assets/Images/Logos/logor1.png'
 import './SignUp.css'
@@ -7,14 +7,14 @@ const Vendor = () => {
    return (
       <section className="vendor min-vh-100 d-flex flex-column align-items-center justify-content-center ">
          <div className="row justify-content-center">
-            <div className="col-lg-8 col-md-6 d-flex flex-column align-items-center justify-content-center">
-               <div className="d-flex justify-content-center py-4">
+            <div className="col-xxl-11 col-xl-10 col-lg-10 col-md-10  d-flex flex-column align-items-center justify-content-center">
+               <div className="d-flex justify-content-center py-1">
                   <Link
                      to="#"
                      className="reg-logo d-flex align-items-center w-auto"
                   >
                      <img src={logol1} alt="" className="logol1" />
-                     <span className="d-none d-lg-block"><img src={logor1} alt="" className="logor1" /></span>
+                     <span className=""><img src={logor1} alt="" className="logor1" /></span>
                   </Link>
                </div>
                {/* End Logo */}
@@ -221,7 +221,7 @@ const Vendor = () => {
                            </div>
                         </div>
                         <hr className="text-secondary" />
-                        <div className="col-3 m-auto mt-3">
+                        <div className="col-7 col-sm-3 col-md-3 col-lg-3 col-xl-2 col-xxl-2 m-auto mt-3">
                            <button className="btn btn-primary w-100" type="submit">
                               Create Account
                            </button>

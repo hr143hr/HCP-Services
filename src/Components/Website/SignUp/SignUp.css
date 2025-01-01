@@ -21,11 +21,9 @@
   background-color: #f6f9ff;
 }
 
-.form {
-  padding: 10px;
-}
+
 .vendor-from {
-  width: 130%;
+  margin: 15px;
   background-color: rgba(
     255,
     255,
@@ -34,7 +32,7 @@
   ) !important; /* Semi-transparent white background */
   border-radius: 5px !important; /* Rounded corners */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  padding: 30px; /* Padding inside the form */
+  padding: 15px; /* Padding inside the form */
 }
 
 /* Vendor Css  End*/
@@ -51,7 +49,7 @@
   background-size: cover; /* Ensures the image covers the container while maintaining aspect ratio */
 }
 .Employeereg-from {
-  width: 130%;
+margin: 15px;
   background-color: rgba(
     255,
     255,
@@ -61,7 +59,7 @@
   border-radius: 5px !important; /* Rounded corners */
 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  padding: 30px; /* Padding inside the form */
+  padding: 15px; /* Padding inside the form */
 }
 
 .custom-file-upload input[type="file"] {
@@ -79,7 +77,7 @@
   background-color: #f6f9ff;
 }
 .user-form {
-  width: 130%;
+
   background-color: rgba(
     255,
     255,
