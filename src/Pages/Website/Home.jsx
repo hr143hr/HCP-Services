@@ -98,7 +98,7 @@ const Home = () => {
               </div>
             </div>
             <div
-              className="row stats-row gy-4 mt-5"
+              className="row stats-row gy-4 "
               data-aos="fade-up"
               data-aos-delay={500}
             >
