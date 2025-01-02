@@ -116,7 +116,7 @@ const UserSignUp = () => {
                       data-bs-target="#createAccountModal"
                       style={{ cursor: "pointer" }}
                     >
-                      Create an business account
+                      Create an account
                     </Link>
                   </p>
                 </div>
@@ -136,7 +136,8 @@ const UserSignUp = () => {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h6>Coose the SignUp Type</h6>
+              {/* <h6>Coose the SignUp Type</h6> */}
+              <span>Coose the Acount</span>
               <button
                 type="button"
                 className="btn-close"

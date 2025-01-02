@@ -171,12 +171,7 @@ return (
                         </div>
                      </div>
                   </div>
-                  <div className="row mt-3">
-                     <div className="col-12">
-                        <label for="validationTextarea" class="form-label">Message </label>
-                        <textarea class="form-control" id="validationTextarea" required></textarea>
-                     </div>
-                  </div>
+            
                   <div className="row mt-3">
                      {/* 
                      <div className="col-12 col-md-12">

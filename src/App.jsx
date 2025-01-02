@@ -10,6 +10,9 @@ import Login from "./Components/Website/Login/Login";
 import UserSignUp from "./Components/Website/SignUp/UserSignUp";
 import Vendor from "./Components/Website/SignUp/Vendor";
 import ServiceMan from "./Components/Website/SignUp/ServiceMan";
+import AdminLayout from "./Layout/AdminLayout";
+import Dashboard from "./Pages/Admin/Dashboard/Dashboard";
+import ManageEnquiry from "./Pages/Admin/Enquiry/ManageEnquiry";
 function App() {
 
   return (
@@ -25,11 +28,16 @@ function App() {
             <Route path="newac" element={<NewAc />} />
             <Route path="acaccessories" element={<AcAccessories />} />
           </Route>
-        
+
           <Route path="/login" element={<Login />} />
           <Route path="/usersignup" element={<UserSignUp />} />
           <Route path="/vendor" element={<Vendor />} />
           <Route path="/serviceman" element={<ServiceMan />} />
+
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="manageenquiry" element={<ManageEnquiry />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>

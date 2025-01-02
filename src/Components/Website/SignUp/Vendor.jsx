@@ -193,14 +193,7 @@ const Vendor = () => {
                               </select>
                            </div>
                         </div>
-                        <div className="row mt-3">
-                           <div className="col-12 col-md-4">
-                              <label for="validationTextarea" class="form-label">Message </label>
-                           </div>
-                           <div className="col-12 col-md-8">
-                              <textarea class="form-control" id="validationTextarea" required></textarea>
-                           </div>
-                        </div>
+                   
                         <div className="col-12 mt-3">
                            <div className="form-check">
                               <input

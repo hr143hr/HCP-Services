@@ -1,4 +1,4 @@
-import {Link} from 'react-router'
+import { Link } from 'react-router'
 import './Login.css'
 import logol1 from '../../../assets/Images/Logos/logol1.png'
 import logor1 from '../../../assets/Images/Logos/logor1.png'
@@ -80,14 +80,15 @@ const Login = () => {
                                         </div>
                                     </div>
                                     <div className="col-12">
-                                        <button className="btn btn-primary w-100" type="submit">
-                                            Login
-                                        </button>
+                                        {/* <button className="btn btn-primary w-100" type="submit">
+                                            login
+                                        </button> */}
+                                        <Link to="/admin" className="btn btn-primary w-100">Login</Link>
                                     </div>
                                     <div className="col-12">
                                         <p className="small mb-0">
                                             Don't have an account?{" "}
-                                        
+
                                             <Link to="/usersignup">Create an account</Link>
                                         </p>
                                     </div>
@@ -97,7 +98,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-       
+
         </section>
     )
 }
