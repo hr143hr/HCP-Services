@@ -71,7 +71,7 @@ const Footer = () => {
           <div className="d-flex flex-column align-items-center align-items-lg-center">
             <div className="credits">
 
-              Designed by <Link to="http://http://dyinfosoft.com/.com/" target="_blanck">DY Infosoft</Link>
+              Designed by <Link to="http://http://dyinfosoft.com/.com/" target="_blanck">DYInfosoft Pvt. Ltd.</Link>
             </div>
           </div>
 
