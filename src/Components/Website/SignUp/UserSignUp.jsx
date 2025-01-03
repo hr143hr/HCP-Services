@@ -1,4 +1,5 @@
-import {Link} from 'react-router'
+import { Link } from 'react-router'
+import { useState } from 'react';
 import logol1 from '../../../assets/Images/Logos/logol1.png'
 import logor1 from '../../../assets/Images/Logos/logor1.png'
 import vendarlogo1 from '../../../assets/Images/Logos/Vandarsignlogo2.png'
@@ -6,6 +7,28 @@ import Servicelogo1 from '../../../assets/Images/Logos/servicesmanlogo.png'
 import './SignUp.css'
 
 const UserSignUp = () => {
+  const [usersignup, setUserSignup] = useState({
+    username: "",
+    email: ""
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUserSignup((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handalUserFormSubmit = (event) => {
+    event.preventDefault(); // Prevent page reload
+    console.log(usersignup); // Log submitted data
+    // Reset input fields after submission
+    setUserSignup({
+      username: "",
+       email: ""
+    });
+  };
+
+
+
   return (
     <section className="user min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
       <div className="container">
@@ -30,32 +53,36 @@ const UserSignUp = () => {
                   Enter your personal details to create account
                 </p>
               </div>
-              <form className="row g-3 needs-validation" noValidate="">
+              <form className="row g-3 needs-validation" onSubmit={handalUserFormSubmit}>
                 <div className="col-12">
-                  <label htmlFor="yourName" className="form-label">
+                  <label htmlFor="yourname" className="form-label">
                     Your Name
                   </label>
                   <input
                     type="text"
-                    name="name"
+                    name="username"
                     className="form-control"
-                    id="yourName"
-                    required=""
+                    id="yourname"
+                    value={usersignup.username}
+                    onChange={handleInputChange}
+
                   />
                   <div className="invalid-feedback">
                     Please, enter your name!
                   </div>
                 </div>
                 <div className="col-12">
-                  <label htmlFor="yourEmail" className="form-label">
+                  <label htmlFor="youremail" className="form-label">
                     Your Email
                   </label>
                   <input
                     type="email"
                     name="email"
                     className="form-control"
-                    id="yourEmail"
-                    required=""
+                    id="youremail"
+                    value={usersignup.email}
+                    onChange={handleInputChange}
+
                   />
                   <div className="invalid-feedback">
                     Please enter Link valid Email adddress!
@@ -70,7 +97,7 @@ const UserSignUp = () => {
                     name="email"
                     className="form-control"
                     id="yourEmail"
-                    required=""
+
                   />
                   <div className="invalid-feedback">
                     Please enter Link valid Email adddress!
@@ -84,7 +111,7 @@ const UserSignUp = () => {
                       type="checkbox"
                       defaultValue=""
                       id="acceptTerms"
-                      required=""
+
                     />
                     <label className="form-check-label" htmlFor="acceptTerms">
                       I agree and accept the{" "}
@@ -100,27 +127,28 @@ const UserSignUp = () => {
                     Create Account
                   </button>
                 </div>
-                <div className="col-12">
-                  <p className="small mb-0">
-                    Already have an account?{" "}
-                    <Link to="/login">Log in</Link>
-                  </p>
-                </div>
-                <div className="col-12">
-                  <p className="small mb-0 text-success">
-                    Create Link free business account?{" "}
-                    {/* <Link to="/login">Create an account</Link> */}
-                    <Link
-                      to="#"
-                      data-bs-toggle="modal"
-                      data-bs-target="#createAccountModal"
-                      style={{ cursor: "pointer" }}
-                    >
-                      Create an account
-                    </Link>
-                  </p>
-                </div>
               </form>
+              <div className="col-12 pt-2">
+                <p className="small mb-0">
+                  Already have an account?{" "}
+                  <Link to="/login">Log in</Link>
+                </p>
+              </div>
+              <div className="col-12 pt-1">
+                <p className="small mb-0 text-success">
+                  Create Link free business account?{" "}
+                  {/* <Link to="/login">Create an account</Link> */}
+                  <Link
+                    to="#"
+                    data-bs-toggle="modal"
+                    data-bs-target="#createAccountModal"
+                    style={{ cursor: "pointer" }}
+                  >
+                    Create an account
+                  </Link>
+                </p>
+              </div>
+
             </div>
           </div>
         </div>

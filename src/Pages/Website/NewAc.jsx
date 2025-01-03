@@ -2,7 +2,11 @@ import React from 'react'
 
 const NewAc = () => {
   return (
-    <div>NewAc</div>
+    <>
+    <div className="newac">
+      <h3 className="mt-5">Running Work</h3>
+    </div>
+    </>
   )
 }
 
