@@ -12,7 +12,10 @@ import Vendor from "./Components/Website/SignUp/Vendor";
 import ServiceMan from "./Components/Website/SignUp/ServiceMan";
 import AdminLayout from "./Layout/AdminLayout";
 import Dashboard from "./Pages/Admin/Dashboard/Dashboard";
-import ManageEnquiry from "./Pages/Admin/Enquiry/ManageEnquiry";
+
+import UserReg from "./Pages/Admin/User/UserReg";
+import VandoReg from "./Pages/Admin/Vendor/VandoReg";
+import ServiceManReg from "./Pages/Admin/ServiceMan.jsx/ServiceManReg";
 function App() {
 
   return (
@@ -35,8 +38,13 @@ function App() {
           <Route path="/serviceman" element={<ServiceMan />} />
 
           <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<Dashboard />} />
-            <Route path="manageenquiry" element={<ManageEnquiry />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="UserReg" element={<UserReg />} />
+            <Route path="VandoReg" element={<VandoReg />} />
+            <Route path="ServiceManReg" element={<ServiceManReg />} />
+            {/* <Route path="manageenquiry" element={<ManageEnquiry />} /> */}
+            {/* <Route path="manageenquiry" element={<ManageEnquiry />} /> */}
+            {/* <Route path="manageenquiry" element={<ManageEnquiry />} /> */}
           </Route>
         </Routes>
       </BrowserRouter>

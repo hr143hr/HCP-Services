@@ -16,7 +16,7 @@ const Dashboard = () => {
         </nav>
       </div>
       {/* End Page Title */}
-      <section className="section dashboard">
+      <section className=" dashboard">
         <div className="row">
           {/* Left side columns */}
           <div className="col-lg-8">

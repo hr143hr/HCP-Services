@@ -42,16 +42,12 @@
   }
   
   .adminlogo img {
-    max-height: 26px;
+    max-height: 65px;
     margin-right: 6px;
+   
   }
   
-  .adminlogo span {
-    font-size: 26px;
-    font-weight: 700;
-    color: #012970;
-    font-family: "Nunito", sans-serif;
-  }
+
   
   .adminheader {
     transition: all 0.5s;

@@ -1,33 +1,110 @@
-import { Link } from 'react-router'
+import { Link } from 'react-router'; // Correct import for react-router-dom
 import { useState } from 'react';
-import logol1 from '../../../assets/Images/Logos/logol1.png'
-import logor1 from '../../../assets/Images/Logos/logor1.png'
-import vendarlogo1 from '../../../assets/Images/Logos/Vandarsignlogo2.png'
-import Servicelogo1 from '../../../assets/Images/Logos/servicesmanlogo.png'
-import './SignUp.css'
+import axios from 'axios'; // Import Axios
+
+import logol1 from '../../../assets/Images/Logos/logol1.png';
+import logor1 from '../../../assets/Images/Logos/logor1.png';
+
+import './SignUp.css';
 
 const UserSignUp = () => {
   const [usersignup, setUserSignup] = useState({
     username: "",
-    email: ""
+    email: "",
+    mobile: "",
+    password: "",
+    confirmPassword: "",
+    terms: false,
   });
 
+  const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setUserSignup((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type, checked } = e.target;
+    setUserSignup((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
   };
 
-  const handalUserFormSubmit = (event) => {
-    event.preventDefault(); // Prevent page reload
-    console.log(usersignup); // Log submitted data
-    // Reset input fields after submission
-    setUserSignup({
-      username: "",
-       email: ""
-    });
+  const validateForm = () => {
+    const newErrors = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const mobileRegex = /^[0-9]{10}$/;
+
+    if (!usersignup.username.trim()) {
+      newErrors.username = "Name is required.";
+    }
+
+    if (!usersignup.email.trim() || !emailRegex.test(usersignup.email)) {
+      newErrors.email = "Valid email is required.";
+    }
+
+    if (!usersignup.mobile.trim() || !mobileRegex.test(usersignup.mobile)) {
+      newErrors.mobile = "Valid 10-digit mobile number is required.";
+    }
+
+    if (!usersignup.password.trim()) {
+      newErrors.password = "Password is required.";
+    } else if (usersignup.password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters long.";
+    }
+
+    if (!usersignup.confirmPassword.trim()) {
+      newErrors.confirmPassword = "Confirm Password is required.";
+    } else if (usersignup.password !== usersignup.confirmPassword) {
+      newErrors.confirmPassword = "Passwords do not match.";
+    }
+
+    if (!usersignup.terms) {
+      newErrors.terms = "You must accept the terms and conditions.";
+    }
+
+    return newErrors;
   };
 
+  const handleUserFormSubmit = async (event) => {
+    event.preventDefault();
 
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const response = await axios.post('/api/Users', {
+        username: usersignup.username,
+        email: usersignup.email,
+        mobile: usersignup.mobile,
+        password: usersignup.password,
+        confirmPassword: usersignup.confirmPassword,
+        terms: usersignup.terms,
+      });
+
+      alert('Account created successfully!');
+      setUserSignup({
+        username: "",
+        email: "",
+        mobile: "",
+        password: "",
+        confirmPassword: "",
+        terms: false,
+      });
+      setErrors({});
+      console.log(response.data); // Log response if needed
+    } catch (error) {
+      if (error.response && error.response.data) {
+        alert(error.response.data.message || 'An error occurred. Please try again.');
+      } else {
+        alert('Unable to create account. Please try again.');
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <section className="user min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
@@ -35,29 +112,23 @@ const UserSignUp = () => {
         <div className="row justify-content-center">
           <div className="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
             <div className="d-flex justify-content-center py-4">
-              <Link
-                to="#"
-                className="reg-logo d-flex align-items-center w-auto"
-              >
-                <img src={logol1} alt="" className="logol1" />
-                <span className=""><img src={logor1} alt="" className="logor1" /></span>
+              <Link to="#" className="reg-logo d-flex align-items-center w-auto">
+                <img src={logol1} alt="Logo L1" className="logol1" />
+                <span>
+                  <img src={logor1} alt="Logo R1" className="logor1" />
+                </span>
               </Link>
             </div>
-            {/* End Logo */}
             <div className="user-form mb-3">
               <div className="pb-2">
-                <h5 className="card-title text-center pb-0 fs-4">
-                  Create an Account
-                </h5>
+                <h5 className="card-title text-center pb-0 fs-4">Create an Account</h5>
                 <p className="text-center small">
-                  Enter your personal details to create account
+                  Enter your personal details to create an account
                 </p>
               </div>
-              <form className="row g-3 needs-validation" onSubmit={handalUserFormSubmit}>
+              <form className="row g-3 needs-validation" onSubmit={handleUserFormSubmit} noValidate>
                 <div className="col-12">
-                  <label htmlFor="yourname" className="form-label">
-                    Your Name
-                  </label>
+                  <label htmlFor="yourname" className="form-label">Your Name</label>
                   <input
                     type="text"
                     name="username"
@@ -65,16 +136,11 @@ const UserSignUp = () => {
                     id="yourname"
                     value={usersignup.username}
                     onChange={handleInputChange}
-
                   />
-                  <div className="invalid-feedback">
-                    Please, enter your name!
-                  </div>
+                  {errors.username && <small className="text-danger">{errors.username}</small>}
                 </div>
                 <div className="col-12">
-                  <label htmlFor="youremail" className="form-label">
-                    Your Email
-                  </label>
+                  <label htmlFor="youremail" className="form-label">Your Email</label>
                   <input
                     type="email"
                     name="email"
@@ -82,26 +148,52 @@ const UserSignUp = () => {
                     id="youremail"
                     value={usersignup.email}
                     onChange={handleInputChange}
-
                   />
-                  <div className="invalid-feedback">
-                    Please enter Link valid Email adddress!
-                  </div>
+                  {errors.email && <small className="text-danger">{errors.email}</small>}
                 </div>
                 <div className="col-12">
-                  <label htmlFor="yourPhoneNumber" className="form-label">
-                    Mobile Number
-                  </label>
+                  <label htmlFor="yourPhoneNumber" className="form-label">Mobile Number</label>
                   <input
                     type="text"
-                    name="email"
+                    name="mobile"
                     className="form-control"
-                    id="yourEmail"
-
+                    id="yourPhoneNumber"
+                    value={usersignup.mobile}
+                    onChange={(e) => {
+                      const { value } = e.target;
+                      if (/^\d*$/.test(value)) {
+                        handleInputChange(e);
+                      }
+                    }}
+                    maxLength="10"
+                    placeholder="Enter 10-digit mobile number"
                   />
-                  <div className="invalid-feedback">
-                    Please enter Link valid Email adddress!
-                  </div>
+                  {errors.mobile && <small className="text-danger">{errors.mobile}</small>}
+                </div>
+                <div className="col-12">
+                  <label htmlFor="yourPassword" className="form-label">Password</label>
+                  <input
+                    type="password"
+                    name="password"
+                    className="form-control"
+                    id="yourPassword"
+                    value={usersignup.password}
+                    onChange={handleInputChange}
+                    maxLength="20"
+                  />
+                  {errors.password && <small className="text-danger">{errors.password}</small>}
+                </div>
+                <div className="col-12">
+                  <label htmlFor="confirmPassword" className="form-label">Confirm Password</label>
+                  <input
+                    type="password"
+                    name="confirmPassword"
+                    className="form-control"
+                    id="confirmPassword"
+                    value={usersignup.confirmPassword}
+                    onChange={handleInputChange}
+                  />
+                  {errors.confirmPassword && <small className="text-danger">{errors.confirmPassword}</small>}
                 </div>
                 <div className="col-12">
                   <div className="form-check">
@@ -109,97 +201,33 @@ const UserSignUp = () => {
                       className="form-check-input"
                       name="terms"
                       type="checkbox"
-                      defaultValue=""
                       id="acceptTerms"
-
+                      checked={usersignup.terms}
+                      onChange={handleInputChange}
                     />
                     <label className="form-check-label" htmlFor="acceptTerms">
-                      I agree and accept the{" "}
-                      <Link to="#">terms and conditions</Link>
+                      I agree and accept the <Link to="#">terms and conditions</Link>
                     </label>
-                    <div className="invalid-feedback">
-                      You must agree before submitting.
-                    </div>
+                    {errors.terms && <small className="text-danger">{errors.terms}</small>}
                   </div>
                 </div>
                 <div className="col-12">
-                  <button className="btn btn-primary w-100" type="submit">
-                    Create Account
+                  <button className="btn btn-primary w-100" type="submit" disabled={isLoading}>
+                    {isLoading ? 'Creating...' : 'Create Account'}
                   </button>
                 </div>
               </form>
               <div className="col-12 pt-2">
                 <p className="small mb-0">
-                  Already have an account?{" "}
-                  <Link to="/login">Log in</Link>
+                  Already have an account? <Link to="/login">Log in</Link>
                 </p>
-              </div>
-              <div className="col-12 pt-1">
-                <p className="small mb-0 text-success">
-                  Create Link free business account?{" "}
-                  {/* <Link to="/login">Create an account</Link> */}
-                  <Link
-                    to="#"
-                    data-bs-toggle="modal"
-                    data-bs-target="#createAccountModal"
-                    style={{ cursor: "pointer" }}
-                  >
-                    Create an account
-                  </Link>
-                </p>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Modal */}
-      <div
-        className="modal fade"
-        id="createAccountModal"
-        tabIndex="-1"
-        aria-labelledby="createAccountModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              {/* <h6>Coose the SignUp Type</h6> */}
-              <span>Coose the Acount</span>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">
-              <div className="d-flex align-items-center justify-content-start">
-                <div data-bs-dismiss="modal">
-                  <Link to="/vendor" data-bs-dismiss="modal" >
-                    <img src={vendarlogo1} alt="Vendor-Logo" className="modallogo" />
-                  </Link>
-                </div>
-                <div className="ms-4" data-bs-dismiss="modal">
-                  <Link to="/vendor" className="btn btn-outline-success">Vendor SignUp!</Link>
-                </div>
-              </div>
-              <div className="d-flex align-items-center justify-content-end">
-
-                <div className="me-4" data-bs-dismiss="modal" >
-                  <Link to="/serviceman" className="btn btn-outline-danger" >Service Man SignUp!</Link>
-                </div>
-                <div data-bs-dismiss="modal">
-                  <Link to="/serviceman">
-                    <img src={Servicelogo1} alt="service-Logo" className="modallogo" />
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
-}
-export default UserSignUp
+  );
+};
+
+export default UserSignUp;

@@ -1,5 +1,9 @@
+import noimg from './../../../assets/Images/No_image_available.png'
+import adminlogo1 from '../../../assets/Images/Logos/logo.png'
+
 import { useState } from 'react'
 import {Link} from 'react-router'
+
 const AdminHeader = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const handleAdminToggle = () => {
@@ -10,9 +14,9 @@ const AdminHeader = () => {
     <>
       <header id="header" className="adminheader fixed-top d-flex align-items-center">
         <div className="d-flex align-items-center justify-content-between">
-          <Link to="/admin" className="adminlogo d-flex align-items-center">
-            <img src="assets/img/logo.png" alt="" />
-            <span className="d-none d-lg-block">NiceAdmin</span>
+          <Link to="/admin/dashboard" className="adminlogo d-flex align-items-center">
+            <img src={adminlogo1} alt="adminlogo" />
+            {/* <span className="d-none d-lg-block"><img src={logor1} alt="logoadmin" /></span> */}
           </Link>
           {/* <i className="bi bi-list toggle-sidebar-btn" /> */}
           {/* <i
@@ -25,7 +29,7 @@ const AdminHeader = () => {
           ></i>
         </div>
         {/* End Logo */}
-        <div className="search-bar">
+        {/* <div className="search-bar">
           <form
             className="search-form d-flex align-items-center"
             method="POST"
@@ -41,7 +45,7 @@ const AdminHeader = () => {
               <i className="bi bi-search" />
             </button>
           </form>
-        </div>
+        </div> */}
         {/* End Search Bar */}
         <nav className="header-nav ms-auto">
           <ul className="d-flex align-items-center">
@@ -52,12 +56,12 @@ const AdminHeader = () => {
             </li>
             {/* End Search Icon*/}
             <li className="nav-item dropdown">
-              <Link className="nav-link nav-icon" to="#" data-bs-toggle="dropdown">
+              {/* <Link className="nav-link nav-icon" to="#" data-bs-toggle="dropdown">
                 <i className="bi bi-bell" />
                 <span className="badge bg-primary badge-number">4</span>
-              </Link>
+              </Link> */}
               {/* End Notification Icon */}
-              <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+              {/* <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
                 <li className="dropdown-header">
                   You have 4 new notifications
                   <Link to="#">
@@ -116,15 +120,15 @@ const AdminHeader = () => {
                 <li className="dropdown-footer">
                   <Link to="#">Show all notifications</Link>
                 </li>
-              </ul>
+              </ul> */}
               {/* End Notification Dropdown Items */}
             </li>
             {/* End Notification Nav */}
             <li className="nav-item dropdown">
-              <Link className="nav-link nav-icon" to="#" data-bs-toggle="dropdown">
+              {/* <Link className="nav-link nav-icon" to="#" data-bs-toggle="dropdown">
                 <i className="bi bi-chat-left-text" />
                 <span className="badge bg-success badge-number">3</span>
-              </Link>
+              </Link> */}
               {/* End Messages Icon */}
               <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
                 <li className="dropdown-header">
@@ -212,24 +216,24 @@ const AdminHeader = () => {
                 data-bs-toggle="dropdown"
               >
                 <img
-                  src="assets/img/profile-img.jpg"
+                  src={noimg}
                   alt="Profile"
                   className="rounded-circle"
                 />
                 <span className="d-none d-md-block dropdown-toggle ps-2">
-                  K. Anderson
+                 Admin
                 </span>
               </Link>
               {/* End Profile Iamge Icon */}
               <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                 <li className="dropdown-header">
-                  <h6>Kevin Anderson</h6>
-                  <span>Web Designer</span>
+                  <h6>Admin</h6>
+                  {/* <span>Web Designer</span> */}
                 </li>
                 <li>
                   <hr className="dropdown-divider" />
                 </li>
-                <li>
+                {/* <li>
                   <Link
                     className="dropdown-item d-flex align-items-center"
                     to="users-profile.html"
@@ -237,11 +241,11 @@ const AdminHeader = () => {
                     <i className="bi bi-person" />
                     <span>My Profile</span>
                   </Link>
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   <hr className="dropdown-divider" />
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   <Link
                     className="dropdown-item d-flex align-items-center"
                     to="users-profile.html"
@@ -249,11 +253,11 @@ const AdminHeader = () => {
                     <i className="bi bi-gear" />
                     <span>Account Settings</span>
                   </Link>
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   <hr className="dropdown-divider" />
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   <Link
                     className="dropdown-item d-flex align-items-center"
                     to="pages-faq.html"
@@ -261,12 +265,12 @@ const AdminHeader = () => {
                     <i className="bi bi-question-circle" />
                     <span>Need Help?</span>
                   </Link>
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   <hr className="dropdown-divider" />
-                </li>
+                </li> */}
                 <li>
-                  <Link className="dropdown-item d-flex align-items-center" to="#">
+                  <Link className="dropdown-item d-flex align-items-center" to="/">
                     <i className="bi bi-box-arrow-right" />
                     <span>Sign Out</span>
                   </Link>

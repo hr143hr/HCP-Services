@@ -1,27 +1,39 @@
 import React from 'react'
-import {Link} from 'react-router'
+import { NavLink } from 'react-router'
 const AdminSidebar = () => {
   return (
-<>
-  {/* ======= Sidebar ======= */}
-  <aside id="sidebar" className="sidebar">
-    <ul className="sidebar-nav" id="sidebar-nav">
-      <li className="nav-item">
-        <Link className="nav-link " to="/">
-          <i className="bi bi-grid" />
-          <span>Dashboard</span>
-        </Link>
-      </li>
-      {/* End Dashboard Nav */}
-      <li className="nav-item ">
-        <Link className="nav-link collapsed" to="/admin/manageenquiry">
-          <i className="bi bi-grid" />
-          <span>ManageEnquiry</span>
-        </Link>
-      </li>
-      {/* End Dashboard Nav */}
+    <>
+      {/* ======= Sidebar ======= */}
+      <aside id="sidebar" className="sidebar">
+        <ul className="sidebar-nav" id="sidebar-nav">
+          <li className="nav-item">
+            <NavLink className={({ isActive }) => (isActive ? "nav-link active" : "nav-link collapsed")} to="/admin/dashboard">
+              <i className="bi bi-grid" />
+              <span>Dashboard</span>
+            </NavLink>
+          </li>
+          {/* End Dashboard Nav */}
+          <li className="nav-item">
+            <NavLink className={({ isActive }) => (isActive ? "nav-link active" : "nav-link collapsed")} to="/admin/UserReg">
+              <i className="bi bi-grid" />
+              <span>User</span>
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className={({ isActive }) => (isActive ? "nav-link active" : "nav-link collapsed")} to="/admin/VandoReg">
+              <i className="bi bi-grid" />
+              <span>Vendor</span>
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className={({ isActive }) => (isActive ? "nav-link active" : "nav-link collapsed")} to="/admin/ServiceManReg">
+              <i className="bi bi-grid" />
+              <span>Technician</span>
+            </NavLink>
+          </li>
+          {/* End Dashboard Nav */}
 
-      {/* <li className="nav-item">
+          {/* <li className="nav-item">
         <Link
           className="nav-link collapsed"
           data-bs-target="#tables-nav"
@@ -51,14 +63,14 @@ const AdminSidebar = () => {
           </li>
         </ul>
       </li> */}
-      {/* End Tables Nav */}
-     
+          {/* End Tables Nav */}
 
-      {/* End Blank Page Nav */}
-    </ul>
-  </aside>
-  {/* End Sidebar*/}
-</>
+
+          {/* End Blank Page Nav */}
+        </ul>
+      </aside>
+      {/* End Sidebar*/}
+    </>
 
   )
 }
