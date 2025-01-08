@@ -23,6 +23,24 @@ const UserReg = () => {
         fetchUsers();
     }, []);
 
+    // Function to handle delete
+    const handleDelete = async (userId, username) => {
+        // Show confirmation dialog with username
+        const isConfirmed = window.confirm(`Are you sure you want to delete ${username}?`);
+        if (!isConfirmed) {
+            return; // Exit if the user cancels
+        }
+
+        try {
+            await axios.delete(`/api/Users/${userId}`);
+            // Update state to remove the deleted user
+            setUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId));
+        } catch (err) {
+            console.error("Failed to delete user:", err);
+            alert("Error deleting user. Please try again.");
+        }
+    };
+
     if (loading) {
         return <p>Loading...</p>;
     }
@@ -48,7 +66,7 @@ const UserReg = () => {
                 {/* End Page Title */}
                 <section className="dashboard">
                     <div className="row p-2">
-                        <table className="table ">
+                        <table className="table">
                             <thead className="table-info">
                                 <tr>
                                     <th scope="col">#</th>
@@ -56,6 +74,7 @@ const UserReg = () => {
                                     <th scope="col">Email</th>
                                     <th scope="col">Mobile Number</th>
                                     <th scope="col">Registration Type</th>
+                                    <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -66,6 +85,14 @@ const UserReg = () => {
                                         <td>{user.email}</td>
                                         <td>{user.mobile}</td>
                                         <td>{user.isActive ? "Active User" : "Inactive User"}</td>
+                                        <td>
+                                            <button
+                                                className="btn btn-danger btn-sm"
+                                                onClick={() => handleDelete(user.id, user.username)}
+                                            >
+                                                Delete
+                                            </button>
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
