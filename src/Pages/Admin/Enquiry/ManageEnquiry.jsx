@@ -19,7 +19,7 @@ const ManageEnquiry = () => {
         <section className=" dashboard">
           <div className="row p-2">
             <table className="table">
-              <thead>
+            <thead className="table-info">
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Name</th>

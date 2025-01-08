@@ -16,6 +16,7 @@ import Dashboard from "./Pages/Admin/Dashboard/Dashboard";
 import UserReg from "./Pages/Admin/User/UserReg";
 import VandoReg from "./Pages/Admin/Vendor/VandoReg";
 import ServiceManReg from "./Pages/Admin/ServiceMan.jsx/ServiceManReg";
+import UnderProcess from "./Pages/Website/UnderProcess";
 function App() {
 
   return (
@@ -36,9 +37,10 @@ function App() {
           <Route path="/usersignup" element={<UserSignUp />} />
           <Route path="/vendor" element={<Vendor />} />
           <Route path="/serviceman" element={<ServiceMan />} />
+          <Route path="/underprocess" element={<UnderProcess />} />
 
           <Route path="/admin" element={<AdminLayout />}>
-            <Route path="dashboard" element={<Dashboard />} />
+            {/* <Route path="dashboard" element={<Dashboard />} /> */}
             <Route path="UserReg" element={<UserReg />} />
             <Route path="VandoReg" element={<VandoReg />} />
             <Route path="ServiceManReg" element={<ServiceManReg />} />

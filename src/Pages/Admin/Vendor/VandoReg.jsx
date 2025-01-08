@@ -45,7 +45,7 @@ const VandoReg = () => {
               <p className="text-danger">{error}</p>
             ) : (
               <table className="table">
-                <thead>
+                 <thead className="table-info">
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
