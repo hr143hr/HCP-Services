@@ -181,13 +181,29 @@ const Login = () => {
                                 </div>
                             </div>
                             <div className="d-flex align-items-center justify-content-end">
-                                <Link to="/serviceman" className="btn btn-outline-danger" data-bs-dismiss="modal">
+                                <div className="ms-4" data-bs-dismiss="modal">
+                                    <Link to="/serviceman" className="btn btn-outline-danger">
                                     Service Man SignUp!
-                                </Link>
+                                    </Link>
+                                </div>
                                 <Link to="/serviceman" data-bs-dismiss="modal">
-                                    <img src={Servicelogo1} alt="service-Logo" className="modallogo" />
+                                    <img src={Servicelogo1} alt="Vendor-Logo" className="modallogo" />
                                 </Link>
                             </div>
+
+
+                            {/* <div className="d-flex align-items-center justify-content-end"> */}
+                                {/* Remove data-bs-dismiss="modal" from Link */}
+                                {/* <Link to="/serviceman" data-bs-dismiss="modal">
+                                    <button className="btn btn-outline-danger">
+                                        Service Man SignUp!
+                                    </button>
+                                </Link>
+                                <Link to="/serviceman">
+                                    <img src={Servicelogo1} alt="service-Logo" className="modallogo" />
+                                </Link>
+                            </div> */}
+
                             <div className="d-flex align-items-center justify-content-start">
                                 <Link to="/usersignup" data-bs-dismiss="modal">
                                     <img src={Userlogo1} alt="User-Logo" className="modallogo" />
